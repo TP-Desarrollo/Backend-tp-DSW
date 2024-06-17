@@ -1,9 +1,7 @@
 ### Obtener todas las localidades
-
 GET http://localhost:3000/api/localidades
 
 ### Obtener una localidad
-
 GET http://localhost:3000/api/localidades/1
 
 ### Crear nueva localidad
@@ -37,5 +35,4 @@ Content-Type: application/json
 }
 
 ### Borrar una localidad
-
 DELETE http://localhost:3000/api/localidades/4
