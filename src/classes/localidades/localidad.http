@@ -25,3 +25,17 @@ Content-Type: application/json
 "provincia": "Santa Fe",
 "codpostal": [2630]
 }
+
+### Modificar una localidad (Parcialmente)
+PATCH http://localhost:3000/api/localidades/4
+Content-Type: application/json
+
+{"id":4,
+"nombre": "Firmat del patch",
+"provincia": "Santa Fe patch",
+"codpostal": [2630]
+}
+
+### Borrar una localidad
+
+DELETE http://localhost:3000/api/localidades/4
