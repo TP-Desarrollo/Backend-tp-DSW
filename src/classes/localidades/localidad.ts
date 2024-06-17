@@ -3,6 +3,6 @@ export class Localidad {
     public id: number,
     public nombre: string,
     public provincia: string,
-    public codpostal: number 
+    public codpostal: number[]
   ) { }
 }

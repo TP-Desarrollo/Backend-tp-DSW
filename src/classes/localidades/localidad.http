@@ -1,0 +1,27 @@
+### Obtener todas las localidades
+
+GET http://localhost:3000/api/localidades
+
+### Obtener una localidad
+
+GET http://localhost:3000/api/localidades/1
+
+### Crear nueva localidad
+
+POST http://localhost:3000/api/localidades/
+Content-Type: application/json
+
+{"id":4,
+"nombre": "Venado Tuerto",
+"provincia": "Santa Fe",
+"codpostal": [2600]}
+
+### Modificar una localidad (Completamente)
+PUT http://localhost:3000/api/localidades/4
+Content-Type: application/json
+
+{"id":4,
+"nombre": "Firmat",
+"provincia": "Santa Fe",
+"codpostal": [2630]
+}
