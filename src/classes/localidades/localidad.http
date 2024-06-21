@@ -1,38 +1,33 @@
 ### Obtener todas las localidades
 GET http://localhost:3000/api/localidades
 
-### Obtener una localidad
-GET http://localhost:3000/api/localidades/1
-
 ### Crear nueva localidad
 
+# @name createLocalidad
 POST http://localhost:3000/api/localidades/
 Content-Type: application/json
 
-{"id":4,
-"nombre": "Venado Tuerto",
-"provincia": "Santa Fe",
-"codpostal": [2600]}
+{
+"nombre": "Arias",
+"provincia": "Cordoba"
+}
+
+### ID
+@id = {{{{createLocalidad.response.body.data.id}}}}
+
+### Obtener una localidad
+GET http://localhost:3000/api/localidades/1
+
 
 ### Modificar una localidad (Completamente)
-PUT http://localhost:3000/api/localidades/4
+PUT http://localhost:3000/api/localidades/2
 Content-Type: application/json
 
-{"id":4,
+{
 "nombre": "Firmat",
-"provincia": "Santa Fe",
-"codpostal": [2630]
+"provincia": "Santa Fe"
 }
 
-### Modificar una localidad (Parcialmente)
-PATCH http://localhost:3000/api/localidades/4
-Content-Type: application/json
-
-{"id":4,
-"nombre": "Firmat del patch",
-"provincia": "Santa Fe patch",
-"codpostal": [2630]
-}
 
 ### Borrar una localidad
-DELETE http://localhost:3000/api/localidades/4
+DELETE http://localhost:3000/api/localidades/3
