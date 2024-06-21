@@ -1,8 +1,13 @@
-export class Localidad {
-  constructor(
-    public id: number,
-    public nombre: string,
-    public provincia: string,
-    public codpostal: number[]
-  ) { }
+import { Entity, Property } from "@mikro-orm/core";
+import { BaseEntity } from "../../shared/db/baseEntity.entity.js";
+
+@Entity()
+export class Localidad extends BaseEntity {
+
+  @Property({nullable: false})
+  nombre!: string
+
+  @Property({nullable: false})
+  provincia!: string
+
 }
