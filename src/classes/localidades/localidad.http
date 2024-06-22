@@ -8,15 +8,15 @@ POST http://localhost:3000/api/localidades/
 Content-Type: application/json
 
 {
-"nombre": "Arias",
-"provincia": "Cordoba"
+"nombre": "Chabas",
+"provincia": "Santa Fe"
 }
 
 ### ID
 @id = {{{{createLocalidad.response.body.data.id}}}}
 
 ### Obtener una localidad
-GET http://localhost:3000/api/localidades/1
+GET http://localhost:3000/api/localidades/4
 
 
 ### Modificar una localidad (Completamente)
@@ -30,4 +30,4 @@ Content-Type: application/json
 
 
 ### Borrar una localidad
-DELETE http://localhost:3000/api/localidades/3
+DELETE http://localhost:3000/api/localidades/4
