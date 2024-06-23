@@ -11,6 +11,6 @@ export class TipoVehiculo extends BaseEntity {
   @Property({nullable: false})
   descripcion!: string
 
-  @OneToMany(() => Vehiculo, (vehiculo) => vehiculo.tipoVehiculo, {cascade: [Cascade.ALL]})
+  @OneToMany(() => Vehiculo, (vehiculo) => vehiculo.tipoVehiculo, {cascade: [Cascade.ALL],lazy: true})
   vehiculos = new Collection<Vehiculo>(this)
 }

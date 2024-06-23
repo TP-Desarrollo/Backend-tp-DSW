@@ -1,0 +1,33 @@
+### GET ALL
+
+GET http://localhost:3000/api/vehiculos
+
+### POST
+
+# @name createVehiculo
+POST http://localhost:3000/api/vehiculos
+Content-Type: application/json
+
+{
+"patente": "testPatente",
+"marca": "Ford",
+"modelo": "Raptor",
+"tipoVehiculo": 4   
+}
+### GET ONE
+
+GET http://localhost:3000/api/vehiculos/1
+
+### PUT
+PUT http://localhost:3000/api/vehiculos/1
+Content-Type: application/json
+
+{
+"patente": "testPatente MODIFICADO",
+"marca": "Ford",
+"modelo": "RaptorCITO",
+"tipoVehiculo": 4   
+}
+
+### DELETE
+DELETE http://localhost:3000/api/vehiculos/1
