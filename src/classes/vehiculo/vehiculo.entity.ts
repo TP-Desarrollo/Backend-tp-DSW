@@ -15,5 +15,5 @@ export class Vehiculo extends BaseEntity {
   modelo!: string
 
   @ManyToOne(() => TipoVehiculo, {nullable: false})
-  tipoVehiculo!: Rel<TipoVehiculo>
+  tipoVehiculo!: TipoVehiculo
 }

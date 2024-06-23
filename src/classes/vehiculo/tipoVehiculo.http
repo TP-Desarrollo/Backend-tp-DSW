@@ -1,11 +1,10 @@
 ### GET ALL
 
-GET http://localhost:3000/api/vehiculos/tipos
+GET http://localhost:3000/api/vehiculos-tipos
 
 ### POST
 
-# @name createTipoVehiculo
-POST http://localhost:3000/api/vehiculos/tipos
+POST http://localhost:3000/api/vehiculos-tipos
 Content-Type: application/json
 
 {
@@ -14,10 +13,10 @@ Content-Type: application/json
 }
 ### GET ONE
 
-GET http://localhost:3000/api/vehiculos/tipos/1
+GET http://localhost:3000/api/vehiculos-tipos/3
 
 ### PUT
-PUT http://localhost:3000/api/vehiculos/tipos/1
+PUT http://localhost:3000/api/vehiculos-tipos/3
 Content-Type: application/json
 
 {
@@ -27,4 +26,4 @@ Content-Type: application/json
 
 
 ### DELETE
-DELETE http://localhost:3000/api/vehiculos/tipos/1
+DELETE http://localhost:3000/api/vehiculos-tipos/3

@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 app.use('/api/localidades', localidadRouter)
 app.use('/api/vehiculos', vehiculoRouter)
-app.use('/api/vehiculos/tipos', tipoVehiculoRouter)
+app.use('/api/vehiculos-tipos', tipoVehiculoRouter)
 
 app.use((_, res) => {
   res.status(404).send({message:'Ruta no encontrada'})
