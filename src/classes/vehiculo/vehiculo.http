@@ -16,10 +16,10 @@ Content-Type: application/json
 }
 ### GET ONE
 
-GET http://localhost:3000/api/vehiculos/1
+GET http://localhost:3000/api/vehiculos/2
 
 ### PUT
-PUT http://localhost:3000/api/vehiculos/1
+PUT http://localhost:3000/api/vehiculos/2
 Content-Type: application/json
 
 {
@@ -30,4 +30,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/api/vehiculos/1
+DELETE http://localhost:3000/api/vehiculos/2

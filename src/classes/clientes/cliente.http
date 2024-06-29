@@ -1,10 +1,10 @@
 ### Obtener todos los usuarios
-GET http://localhost:3000/api/usuarios
+GET http://localhost:3000/api/clientes
 
 ### Crear nueva localidad
 
-# @name createUsuario
-POST http://localhost:3000/api/usuarios/
+# @name createCliente
+POST http://localhost:3000/api/clientes/
 Content-Type: application/json
 
 {
@@ -12,18 +12,19 @@ Content-Type: application/json
 "nombre": "Martina",
 "apellido": "Diaz",
 "email":"martinadiaz@gmail.com",
-"contra": "123456"
+"clave": "123456",
+"localidad": 1
 }
 
 ### ID
-@id = {{{{createUsuario.response.body.data.id}}}}
+@id = {{{{createCliente.response.body.data.id}}}}
 
 ### Obtener un Usuario
-GET http://localhost:3000/api/usuarios/1
+GET http://localhost:3000/api/clientes/1
 
 
 ### Modificar un Usuario (Completamente)
-PUT http://localhost:3000/api/usuarios/1
+PUT http://localhost:3000/api/clientes/1
 Content-Type: application/json
 
 {
@@ -32,4 +33,4 @@ Content-Type: application/json
 
 
 ### Borrar un Usuario
-DELETE http://localhost:3000/api/usuarios/4
+DELETE http://localhost:3000/api/clientes/1
