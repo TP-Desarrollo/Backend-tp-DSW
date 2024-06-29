@@ -5,7 +5,8 @@ import { orm, syncSchema } from "./shared/db/orm.js"
 import { RequestContext } from "@mikro-orm/core"
 import { vehiculoRouter } from "./classes/vehiculo/vehiculo.router.js"
 import { tipoVehiculoRouter } from "./classes/vehiculo/tipoVehiculo.router.js"
-import { usuarioRouter } from "./classes/usuarios/usuario.routes.js"
+import { clienteRouter } from "./classes/clientes/cliente.routes.js"
+
 
 const app = express()
 app.use(express.json()) // Middleware para el req.body
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
 app.use('/api/localidades', localidadRouter)
 app.use('/api/vehiculos', vehiculoRouter)
 app.use('/api/vehiculos-tipos', tipoVehiculoRouter)
-app.use('/api/usuarios', usuarioRouter)
+app.use('/api/clientes', clienteRouter)
 
 app.use((_, res) => {
   res.status(404).send({message:'Ruta no encontrada'})

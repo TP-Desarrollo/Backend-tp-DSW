@@ -19,9 +19,9 @@ export const orm = await MikroORM.init({
 
 export const syncSchema = async () => {   //Genera la bd y actualiza
   const generator = orm.getSchemaGenerator()
-  
+
   await generator.dropSchema()    //Lo usamos si fuera necesario rehacer la bd.
   await generator.createSchema()
-  
+
   await generator.updateSchema()
 }
