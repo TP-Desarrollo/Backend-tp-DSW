@@ -1,9 +1,8 @@
-import { ManyToOne, Entity, Property, Rel } from "@mikro-orm/core";
+import { Entity, Property} from "@mikro-orm/core";
 import { BaseEntity } from "../../shared/db/baseEntity.entity.js";
-import { Localidad } from "../localidades/localidad.entity.js";
 
 @Entity()
-export class Cliente extends BaseEntity {
+export class Empleado extends BaseEntity {
 
   @Property({nullable: false})
   dni!: number
@@ -20,6 +19,4 @@ export class Cliente extends BaseEntity {
   @Property({nullable: false})
   apellido!: string
 
-  @ManyToOne(() => Localidad, {nullable: false})
-  localidad!: Rel<Localidad>
 }
