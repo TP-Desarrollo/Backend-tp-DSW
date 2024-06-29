@@ -1,11 +1,12 @@
 import "reflect-metadata"
 import express from "express"
-import { localidadRouter } from "./classes/localidades/localidad.routes.js"
 import { orm, syncSchema } from "./shared/db/orm.js"
 import { RequestContext } from "@mikro-orm/core"
-import { vehiculoRouter } from "./classes/vehiculo/vehiculo.router.js"
-import { tipoVehiculoRouter } from "./classes/vehiculo/tipoVehiculo.router.js"
-import { clienteRouter } from "./classes/clientes/cliente.routes.js"
+import { localidadRouter } from "./classes/localidad/localidad.routes.js"
+import { vehiculoRouter } from "./classes/vehiculo/vehiculo.routes.js"
+import { tipoVehiculoRouter } from "./classes/vehiculo/tipoVehiculo.routes.js"
+import { clienteRouter } from "./classes/cliente/cliente.routes.js"
+import { empleadoRouter } from "./classes/empleado/empleado.routes.js"
 
 
 const app = express()
@@ -20,6 +21,7 @@ app.use('/api/localidades', localidadRouter)
 app.use('/api/vehiculos', vehiculoRouter)
 app.use('/api/vehiculos-tipos', tipoVehiculoRouter)
 app.use('/api/clientes', clienteRouter)
+app.use('/api/empleados', empleadoRouter)
 
 app.use((_, res) => {
   res.status(404).send({message:'Ruta no encontrada'})
