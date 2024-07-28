@@ -7,7 +7,7 @@ POST http://localhost:3000/api/localidades/
 Content-Type: application/json
 
 {
-"nombre": "Chabas",
+"nombre": "Rosario",
 "provincia": "Santa Fe"
 }
 

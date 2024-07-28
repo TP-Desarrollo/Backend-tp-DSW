@@ -13,6 +13,7 @@ function sanitizeEmpleadoInput(req: Request, res: Response, next: NextFunction) 
     email: req.body.email,
     clave: req.body.clave, 
     apellido: req.body.apellido,
+    alquileres: req.body.alquileres,
   }
   // Faltan validaciones aca de otras cosas
 
