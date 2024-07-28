@@ -1,8 +1,7 @@
-### Obtener todas las localidades
+### GET ALL
 GET http://localhost:3000/api/localidades
 
-### Crear nueva localidad
-
+### POST
 # @name createLocalidad
 POST http://localhost:3000/api/localidades/
 Content-Type: application/json
@@ -13,14 +12,13 @@ Content-Type: application/json
 }
 
 ### ID
-@id = {{{{createLocalidad.response.body.data.id}}}}
+@id = {{createLocalidad.response.body.data.id}}
 
-### Obtener una localidad
-GET http://localhost:3000/api/localidades/4
+### GET ONE
+GET http://localhost:3000/api/localidades/{{id}}
 
-
-### Modificar una localidad (Completamente)
-PUT http://localhost:3000/api/localidades/2
+### PUT
+PUT http://localhost:3000/api/localidades/{{id}}
 Content-Type: application/json
 
 {
@@ -28,6 +26,5 @@ Content-Type: application/json
 "provincia": "Santa Fe"
 }
 
-
-### Borrar una localidad
-DELETE http://localhost:3000/api/localidades/4
+### DELETE
+DELETE http://localhost:3000/api/localidades/{{id}}

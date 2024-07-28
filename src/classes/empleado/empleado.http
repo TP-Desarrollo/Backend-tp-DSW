@@ -1,8 +1,7 @@
-### Obtener todos los usuarios
+### GET ALL
 GET http://localhost:3000/api/empleados
 
-### Crear nueva localidad
-
+### POST
 # @name createEmpleado
 POST http://localhost:3000/api/empleados/
 Content-Type: application/json
@@ -16,20 +15,18 @@ Content-Type: application/json
 }
 
 ### ID
-@id = {{{{createEmpleado.response.body.data.id}}}}
+@id = {{createEmpleado.response.body.data.id}}
 
-### Obtener un Usuario
-GET http://localhost:3000/api/empleados/1
+### GET ONE
+GET http://localhost:3000/api/empleados/{{id}}
 
-
-### Modificar un Usuario (Completamente)
-PUT http://localhost:3000/api/empleados/1
+### PUT
+PUT http://localhost:3000/api/empleados/{{id}}
 Content-Type: application/json
 
 {
 "email":"martinadiazzzzz@gmail.com"
 }
 
-
-### Borrar un Usuario
-DELETE http://localhost:3000/api/empleados/1
+### DELETE
+DELETE http://localhost:3000/api/empleados/{{id}}
