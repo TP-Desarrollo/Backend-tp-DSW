@@ -12,7 +12,7 @@ Content-Type: application/json
 "patente": "testPatente",
 "marca": "Ford",
 "modelo": "Raptor",
-"tipoVehiculo": 4   
+"tipoVehiculo": 1   
 }
 ### GET ONE
 
@@ -26,7 +26,7 @@ Content-Type: application/json
 "patente": "testPatente MODIFICADO",
 "marca": "Ford",
 "modelo": "RaptorCITO",
-"tipoVehiculo": 4   
+"tipoVehiculo": 1  
 }
 
 ### DELETE

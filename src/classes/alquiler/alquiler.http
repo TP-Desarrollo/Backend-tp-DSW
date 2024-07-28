@@ -1,0 +1,37 @@
+### Obtener todos los usuarios
+GET http://localhost:3000/api/alquileres
+
+### Crear nueva localidad
+
+# @name createAlquiler
+POST http://localhost:3000/api/alquileres/
+Content-Type: application/json
+
+{
+"cliente":1,
+"empleado": 1,
+"vehiculo": 1,
+"fechaInicio": "2024-07-28",
+"fechaFin": "2024-07-30",
+"estado": "Iniciado",
+"precio": 20000
+}
+
+### ID
+@id = {{{{createAlquiler.response.body.data.id}}}}
+
+### Obtener un Usuario
+GET http://localhost:3000/api/alquileres/1
+
+
+### Modificar un Usuario (Completamente)
+PUT http://localhost:3000/api/alquileres/1
+Content-Type: application/json
+
+{
+"estado":"iniciadoooooooo"
+}
+
+
+### Borrar un Usuario
+DELETE http://localhost:3000/api/alquileres/1

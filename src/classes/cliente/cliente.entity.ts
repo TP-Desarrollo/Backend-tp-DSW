@@ -1,6 +1,7 @@
-import { ManyToOne, Entity, Property, Rel } from "@mikro-orm/core";
+import { ManyToOne, Entity, Property, Rel, OneToMany, Collection, Cascade } from "@mikro-orm/core";
 import { BaseEntity } from "../../shared/db/baseEntity.entity.js";
 import { Localidad } from "../localidad/localidad.entity.js";
+import { Alquiler } from "../alquiler/alquiler.entity.js";
 
 @Entity()
 export class Cliente extends BaseEntity {
@@ -28,4 +29,8 @@ export class Cliente extends BaseEntity {
 
   @ManyToOne(() => Localidad, {nullable: false})
   localidad!: Rel<Localidad>
+
+  @OneToMany(() => Alquiler, alquiler => alquiler.cliente, {cascade: [Cascade.ALL]})
+  alquileres = new Collection<Alquiler>(this)
+  
 }
