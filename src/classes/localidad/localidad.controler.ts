@@ -9,7 +9,8 @@ function sanitizeLocalidadInput(req: Request, res: Response, next: NextFunction)
   req.body.sanitizedInput = {
     id: req.body.id, 
     nombre: req.body.nombre, 
-    provincia: req.body.provincia, 
+    provincia: req.body.provincia,
+    clientes: req.body.clientes,
   }
   // Faltan validaciones aca de otras cosas
 

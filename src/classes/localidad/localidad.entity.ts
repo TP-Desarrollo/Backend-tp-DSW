@@ -11,7 +11,7 @@ export class Localidad extends BaseEntity {
   @Property({nullable: false})
   provincia!: string
 
-  @OneToMany(() => Cliente, (cliente) => cliente.localidad, {cascade: [Cascade.ALL],lazy: true})
+  @OneToMany(() => Cliente, (cliente) => cliente.localidad, {cascade: [Cascade.ALL]})
   clientes = new Collection<Cliente>(this)
 
 }

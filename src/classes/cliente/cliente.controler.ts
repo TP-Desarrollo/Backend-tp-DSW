@@ -15,6 +15,7 @@ function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
     telefono: req.body.telefono,
     apellido: req.body.apellido,
     localidad: req.body.localidad,
+    alquileres: req.body.alquileres,
   }
   // Faltan validaciones aca de otras cosas
 
