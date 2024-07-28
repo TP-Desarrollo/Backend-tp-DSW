@@ -1,8 +1,7 @@
-### Obtener todos los usuarios
+### GET ALL
 GET http://localhost:3000/api/alquileres
 
-### Crear nueva localidad
-
+### POST
 # @name createAlquiler
 POST http://localhost:3000/api/alquileres/
 Content-Type: application/json
@@ -18,20 +17,19 @@ Content-Type: application/json
 }
 
 ### ID
-@id = {{{{createAlquiler.response.body.data.id}}}}
+@id = {{createAlquiler.response.body.data.id}}
 
-### Obtener un Usuario
-GET http://localhost:3000/api/alquileres/1
+### GET ONE
+GET http://localhost:3000/api/alquileres/{{id}}
 
 
-### Modificar un Usuario (Completamente)
-PUT http://localhost:3000/api/alquileres/1
+### PUT
+PUT http://localhost:3000/api/alquileres/{{id}}
 Content-Type: application/json
 
 {
 "estado":"iniciadoooooooo"
 }
 
-
-### Borrar un Usuario
-DELETE http://localhost:3000/api/alquileres/1
+### DELETE
+DELETE http://localhost:3000/api/alquileres/{{id}}

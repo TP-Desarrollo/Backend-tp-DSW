@@ -3,7 +3,7 @@
 GET http://localhost:3000/api/vehiculos-tipos
 
 ### POST
-
+# @name createTipoVehiculo
 POST http://localhost:3000/api/vehiculos-tipos
 Content-Type: application/json
 
@@ -11,12 +11,15 @@ Content-Type: application/json
 "tipo": "4x4",
 "descripcion": "Gran tamaño, traccion AWD"
 }
-### GET ONE
 
-GET http://localhost:3000/api/vehiculos-tipos/3
+### ID
+@id = {{createTipoVehiculo.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/api/vehiculos-tipos/{{id}}
 
 ### PUT
-PUT http://localhost:3000/api/vehiculos-tipos/3
+PUT http://localhost:3000/api/vehiculos-tipos/{{id}}
 Content-Type: application/json
 
 {
@@ -24,6 +27,5 @@ Content-Type: application/json
 "descripcion": "Gran tamaño, traccion AWD MODIFICADO"
 }
 
-
 ### DELETE
-DELETE http://localhost:3000/api/vehiculos-tipos/3
+DELETE http://localhost:3000/api/vehiculos-tipos/{{id}}
