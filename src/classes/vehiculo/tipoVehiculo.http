@@ -8,8 +8,8 @@ POST http://localhost:3000/api/vehiculos-tipos
 Content-Type: application/json
 
 {
-"tipo": "4x4",
-"descripcion": "Gran tamaño, traccion AWD"
+"tipo": "SUV",
+"descripcion": "Tamaño promedio, perfecto para familias"
 }
 
 ### ID

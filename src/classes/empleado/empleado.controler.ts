@@ -27,7 +27,7 @@ function sanitizeEmpleadoInput(req: Request, res: Response, next: NextFunction) 
 
 async function findAll(req: Request, res: Response) {
   try {
-    const empleado = await em.find(Empleado, {})
+    const empleado = await em.find(Empleado, {}, { populate: ['alquileres'] })
     res.status(200).json({message:"Empleados encontrados", data: empleado})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -37,7 +37,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const empleado = await em.findOneOrFail(Empleado, { id })
+    const empleado = await em.findOneOrFail(Empleado, { id }, { populate: ['alquileres'] })
     res.status(200).json({message:"Empleado encontrado", data: empleado})
   } catch (error: any) {
     res.status(500).json({error: error.message})
