@@ -24,7 +24,7 @@ function sanitizeLocalidadInput(req: Request, res: Response, next: NextFunction)
 
 async function findAll(req: Request, res: Response) {
   try {
-    const localidades = await em.find(Localidad, {})
+    const localidades = await em.find(Localidad, {} ,{populate:['clientes']})
     res.status(200).json({message:"Localidades encontradas", data: localidades})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -34,7 +34,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const localidad = await em.findOneOrFail(Localidad, { id })
+    const localidad = await em.findOneOrFail(Localidad, { id }, {populate:['clientes']})
     res.status(200).json({message:"Localidad encontrada", data: localidad})
   } catch (error: any) {
     res.status(500).json({error: error.message})

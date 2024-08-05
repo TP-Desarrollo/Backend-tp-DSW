@@ -11,7 +11,8 @@ function sanitizeVehiculoInput(req: Request, res: Response, next: NextFunction) 
     patente: req.body.patente, 
     marca: req.body.marca,
     modelo: req.body.modelo, 
-    tipoVehiculo: req.body.tipoVehiculo
+    tipoVehiculo: req.body.tipoVehiculo,
+    alquileres: req.body.alquileres
   }
   // Faltan validaciones aca de otras cosas
 
@@ -25,7 +26,7 @@ function sanitizeVehiculoInput(req: Request, res: Response, next: NextFunction) 
 
 async function findAll(req: Request, res: Response) {
   try {
-    const vehiculos = await em.find(Vehiculo, {}, {populate: ['tipoVehiculo']})
+    const vehiculos = await em.find(Vehiculo, {}, {populate: ['tipoVehiculo','alquileres']})
     res.status(200).json({message:"Vehiculos encontrados", data: vehiculos})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -35,7 +36,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const vehiculo = await em.findOneOrFail(Vehiculo, { id })
+    const vehiculo = await em.findOneOrFail(Vehiculo, { id }, {populate: ['tipoVehiculo','alquileres']})
     res.status(200).json({message:"Vehiculo encontrado", data: vehiculo})
   } catch (error: any) {
     res.status(500).json({error: error.message})

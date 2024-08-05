@@ -29,7 +29,7 @@ function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
 
 async function findAll(req: Request, res: Response) {
   try {
-    const cliente = await em.find(Cliente, {}, { populate: ['localidad'] })
+    const cliente = await em.find(Cliente, {}, { populate: ['localidad','alquileres'] })
     res.status(200).json({message:"Clientes encontrados", data: cliente})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -39,7 +39,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const cliente = await em.findOneOrFail(Cliente, { id })
+    const cliente = await em.findOneOrFail(Cliente, { id }, { populate: ['localidad','alquileres'] })
     res.status(200).json({message:"Cliente encontrado", data: cliente})
   } catch (error: any) {
     res.status(500).json({error: error.message})
