@@ -18,12 +18,12 @@ app.use((req, res, next) => {
   RequestContext.create(orm.em, next)
 })
 
-app.use('/api/localidades', localidadRouter)
-app.use('/api/vehiculos', vehiculoRouter)
-app.use('/api/vehiculos-tipos', tipoVehiculoRouter)
-app.use('/api/clientes', clienteRouter)
-app.use('/api/empleados', empleadoRouter)
-app.use('/api/alquileres', alquilerRouter)
+app.use('/localidades', localidadRouter)
+app.use('/vehiculos', vehiculoRouter)
+app.use('/vehiculos-tipos', tipoVehiculoRouter)
+app.use('/clientes', clienteRouter)
+app.use('/empleados', empleadoRouter)
+app.use('/alquileres', alquilerRouter)
 
 app.use((_, res) => {
   res.status(404).send({message:'Ruta no encontrada'})

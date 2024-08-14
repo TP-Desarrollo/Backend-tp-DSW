@@ -1,9 +1,9 @@
 ### GET ALL
-GET http://localhost:3000/api/vehiculos
+GET http://localhost:3000/vehiculos
 
 ### POST
 # @name createVehiculo
-POST http://localhost:3000/api/vehiculos
+POST http://localhost:3000/vehiculos
 Content-Type: application/json
 
 {
@@ -17,10 +17,10 @@ Content-Type: application/json
 @id = {{createVehiculo.response.body.data.id}}
 
 ### GET ONE
-GET http://localhost:3000/api/vehiculos/{{id}}
+GET http://localhost:3000/vehiculos/{{id}}
 
 ### PUT
-PUT http://localhost:3000/api/vehiculos/{{id}}
+PUT http://localhost:3000/vehiculos/{{id}}
 Content-Type: application/json
 
 {
@@ -31,4 +31,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/api/vehiculos/{{id}}
+DELETE http://localhost:3000/vehiculos/{{id}}

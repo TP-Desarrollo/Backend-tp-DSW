@@ -1,10 +1,10 @@
 ### GET ALL
 
-GET http://localhost:3000/api/vehiculos-tipos
+GET http://localhost:3000/vehiculos-tipos
 
 ### POST
 # @name createTipoVehiculo
-POST http://localhost:3000/api/vehiculos-tipos
+POST http://localhost:3000/vehiculos-tipos
 Content-Type: application/json
 
 {
@@ -16,10 +16,10 @@ Content-Type: application/json
 @id = {{createTipoVehiculo.response.body.data.id}}
 
 ### GET ONE
-GET http://localhost:3000/api/vehiculos-tipos/{{id}}
+GET http://localhost:3000/vehiculos-tipos/{{id}}
 
 ### PUT
-PUT http://localhost:3000/api/vehiculos-tipos/{{id}}
+PUT http://localhost:3000/vehiculos-tipos/{{id}}
 Content-Type: application/json
 
 {
@@ -28,4 +28,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/api/vehiculos-tipos/{{id}}
+DELETE http://localhost:3000/vehiculos-tipos/{{id}}

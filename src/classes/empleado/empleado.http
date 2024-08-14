@@ -1,9 +1,9 @@
 ### GET ALL
-GET http://localhost:3000/api/empleados
+GET http://localhost:3000/empleados
 
 ### POST
 # @name createEmpleado
-POST http://localhost:3000/api/empleados/
+POST http://localhost:3000/empleados/
 Content-Type: application/json
 
 {
@@ -18,10 +18,10 @@ Content-Type: application/json
 @id = {{createEmpleado.response.body.data.id}}
 
 ### GET ONE
-GET http://localhost:3000/api/empleados/{{id}}
+GET http://localhost:3000/empleados/{{id}}
 
 ### PUT
-PUT http://localhost:3000/api/empleados/{{id}}
+PUT http://localhost:3000/empleados/{{id}}
 Content-Type: application/json
 
 {
@@ -29,4 +29,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/api/empleados/{{id}}
+DELETE http://localhost:3000/empleados/{{id}}

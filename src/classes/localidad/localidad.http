@@ -1,24 +1,24 @@
 ### GET ALL
-GET http://localhost:3000/api/localidades
+GET http://localhost:3000/localidades
 
 ### POST
 # @name createLocalidad
-POST http://localhost:3000/api/localidades/
+POST http://localhost:3000/localidades/
 Content-Type: application/json
 
 {
-"nombre": "Rosario",
-"provincia": "Santa Fe"
+"nombre": "Arias",
+"provincia": "Cordoba"
 }
 
 ### ID
 @id = {{createLocalidad.response.body.data.id}}
 
 ### GET ONE
-GET http://localhost:3000/api/localidades/{{id}}
+GET http://localhost:3000/localidades/{{id}}
 
 ### PUT
-PUT http://localhost:3000/api/localidades/2
+PUT http://localhost:3000/localidades/2
 Content-Type: application/json
 
 {
@@ -27,4 +27,4 @@ Content-Type: application/json
 }
 
 ### DELETE
-DELETE http://localhost:3000/api/localidades/{{id}}
+DELETE http://localhost:3000/localidades/{{id}}
