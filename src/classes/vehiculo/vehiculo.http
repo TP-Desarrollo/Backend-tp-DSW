@@ -10,6 +10,7 @@ Content-Type: application/json
 "patente": "testPatente",
 "marca": "Ford",
 "modelo": "Raptor",
+"estado": "Disponible",
 "tipoVehiculo": 1   
 }
 

@@ -10,7 +10,8 @@ function sanitizeVehiculoInput(req: Request, res: Response, next: NextFunction) 
     id: req.body.id, 
     patente: req.body.patente, 
     marca: req.body.marca,
-    modelo: req.body.modelo, 
+    modelo: req.body.modelo,
+    estado: req.body.estado, 
     tipoVehiculo: req.body.tipoVehiculo,
     alquileres: req.body.alquileres
   }
