@@ -27,7 +27,7 @@ function sanitizeVehiculoInput(req: Request, res: Response, next: NextFunction) 
 
 async function findAll(req: Request, res: Response) {
   try {
-    const vehiculos = await em.find(Vehiculo, {}, {populate: ['tipoVehiculo','alquileres']})
+    const vehiculos = await em.find(Vehiculo, {}, {populate: ['tipoVehiculo']}) // Se podria agregar el populate de alquileres, por ahora no parece
     res.status(200).json({message:"Vehiculos encontrados", data: vehiculos})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -37,7 +37,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const vehiculo = await em.findOneOrFail(Vehiculo, { id }, {populate: ['tipoVehiculo','alquileres']})
+    const vehiculo = await em.findOneOrFail(Vehiculo, { id }, {populate: ['tipoVehiculo']}) // Se podria agregar el populate de alquileres, por ahora no parece
     res.status(200).json({message:"Vehiculo encontrado", data: vehiculo})
   } catch (error: any) {
     res.status(500).json({error: error.message})

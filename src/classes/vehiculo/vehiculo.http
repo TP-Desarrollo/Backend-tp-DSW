@@ -28,6 +28,7 @@ Content-Type: application/json
 "patente": "testPatente MODIFICADO",
 "marca": "Ford",
 "modelo": "RaptorCITO",
+"estado": "Disponible",
 "tipoVehiculo": 1  
 }
 
