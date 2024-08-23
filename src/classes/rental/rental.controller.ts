@@ -1,18 +1,22 @@
 import { Request, Response, NextFunction } from "express"
 import { orm } from "../../shared/db/orm.js"
-import { TipoVehiculo } from "./tipoVehiculo.entity.js"
+import { Rental } from "./rental.entity.js"
 
 const em = orm.em
 
-function sanitizeTipoVehiculoInput(req: Request, res: Response, next: NextFunction) {
+function sanitizeRentalInput(req: Request, res: Response, next: NextFunction) {
   
   req.body.sanitizedInput = {
     id: req.body.id, 
-    tipo: req.body.tipo, 
-    descripcion: req.body.descripcion,
-    vehiculos: req.body.vehiculos, 
+    customer: req.body.customer, 
+    employee: req.body.employee,
+    vehicle: req.body.vehicle, 
+    startDate: req.body.startDate,
+    endDate: req.body.endDate,
+    status: req.body.status,
+    price: req.body.price,
   }
-  // Faltan validaciones aca de otras cosas
+  // Missing validations here for other things
 
   Object.keys(req.body.sanitizedInput).forEach(key => {
     if(req.body.sanitizedInput[key] === undefined){
@@ -24,8 +28,8 @@ function sanitizeTipoVehiculoInput(req: Request, res: Response, next: NextFuncti
 
 async function findAll(req: Request, res: Response) {
   try {
-    const tipoVehiculos = await em.find(TipoVehiculo, {}, {populate:['vehiculos']})
-    res.status(200).json({message:"Tipo Vehiculos encontrados", data: tipoVehiculos})
+    const rental = await em.find(Rental, {}, { populate: ['customer','employee','vehicle'] })
+    res.status(200).json({message:"Rentals found", data: rental})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -34,8 +38,8 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const tipoVehiculo = await em.findOneOrFail(TipoVehiculo, { id }, {populate:['vehiculos']})
-    res.status(200).json({message:"Tipo Vehiculo encontrado", data: tipoVehiculo})
+    const rental = await em.findOneOrFail(Rental, { id })
+    res.status(200).json({message:"Rental found", data: rental})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -43,9 +47,9 @@ async function findOne(req: Request, res: Response) {
 
 async function add(req: Request, res: Response){
   try {
-    const tipoVehiculo = em.create(TipoVehiculo, req.body.sanitizedInput)
+    const rental = em.create(Rental, req.body.sanitizedInput)
     await em.flush()
-    res.status(201).send({message: 'Tipo Vehiculo creado', data: tipoVehiculo})
+    res.status(201).send({message: 'Rental created', data: rental})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -54,29 +58,28 @@ async function add(req: Request, res: Response){
 async function update(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const tipoVehiculo =  em.getReference(TipoVehiculo, id )
-    em.assign(tipoVehiculo, req.body.sanitizedInput)
+    const rental =  em.getReference(Rental, id )
+    em.assign(rental, req.body.sanitizedInput)
     await em.flush()
-    res.status(200).send({message: 'Tipo Vehiculo actualizado', data: tipoVehiculo})
+    res.status(200).send({message: 'Rental updated', data: rental})
   } catch (error:any) {
     res.status(500).json({error: error.message})
   }
 }
 
-
 async function remove(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const tipoVehiculo =  em.getReference(TipoVehiculo, id )
-    await em.removeAndFlush(tipoVehiculo)
-    res.status(200).send({message: 'Tipo Vehiculo eliminado', data: tipoVehiculo})
+    const rental =  em.getReference(Rental, id )
+    await em.removeAndFlush(rental)
+    res.status(200).send({message: 'Rental deleted', data: rental})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
 }
 
 export{
-  sanitizeTipoVehiculoInput,
+  sanitizeRentalInput,
   findAll,
   findOne,
   add,

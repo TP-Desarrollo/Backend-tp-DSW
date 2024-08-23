@@ -1,0 +1,32 @@
+### GET ALL
+GET http://localhost:3000/employees
+
+### POST
+# @name createEmployee
+POST http://localhost:3000/employees/
+Content-Type: application/json
+
+{
+"idNumber":12345678,
+"firstName": "Martina",
+"lastName": "Diaz",
+"email":"martinadiaz@gmail.com",
+"password": "123456"
+}
+
+### ID
+@id = {{createEmployee.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/employees/{{id}}
+
+### PUT
+PUT http://localhost:3000/employees/{{id}}
+Content-Type: application/json
+
+{
+"email":"martinadiazzzzz@gmail.com"
+}
+
+### DELETE
+DELETE http://localhost:3000/employees/{{id}}

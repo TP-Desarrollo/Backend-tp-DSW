@@ -1,25 +1,25 @@
 import { Entity, OneToMany, Property, Collection, Cascade } from "@mikro-orm/core";
 import { BaseEntity } from "../../shared/db/baseEntity.entity.js";
-import { Alquiler } from "../alquiler/alquiler.entity.js";
+import { Rental } from "../rental/rental.entity.js";
 
 @Entity()
-export class Empleado extends BaseEntity {
+export class Employee extends BaseEntity {
 
   @Property({nullable: false})
-  dni!: number
+  idNumber!: number
 
   @Property({nullable: false})
-  nombre!: string
+  firstName!: string
 
   @Property({nullable: false})
   email!: string
 
   @Property({nullable: false})
-  clave!: string
+  password!: string
 
   @Property({nullable: false})
-  apellido!: string
+  lastName!: string
 
-  @OneToMany(() => Alquiler, alquiler => alquiler.empleado, {cascade: [Cascade.ALL]})
-  alquileres = new Collection<Alquiler>(this)
+  @OneToMany(() => Rental, rental => rental.employee, {cascade: [Cascade.ALL]})
+  rentals = new Collection<Rental>(this)
 }

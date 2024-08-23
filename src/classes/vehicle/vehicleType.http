@@ -1,0 +1,31 @@
+### GET ALL
+
+GET http://localhost:3000/vehicle-types
+
+### POST
+# @name createVehicleType
+POST http://localhost:3000/vehicle-types
+Content-Type: application/json
+
+{
+"type": "4x4",
+"description": "For big jobs"
+}
+
+### ID
+@id = {{createVehicleType.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/vehicle-types/{{id}}
+
+### PUT
+PUT http://localhost:3000/vehicle-types/{{id}}
+Content-Type: application/json
+
+{
+"type": "4x4 MODIFIED",
+"description": "Large size, AWD traction MODIFIED"
+}
+
+### DELETE
+DELETE http://localhost:3000/vehicle-types/{{id}}

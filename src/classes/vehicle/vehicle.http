@@ -1,0 +1,36 @@
+### GET ALL
+GET http://localhost:3000/vehicles
+
+### POST
+# @name createVehicle
+POST http://localhost:3000/vehicles
+Content-Type: application/json
+
+{
+"licensePlate": "gfsdaS",
+"brand": "RAM",
+"model": "Ram",
+"status": "Available",
+"vehicleType": 2   
+}
+
+### ID
+@id = {{createVehicle.response.body.data.id}}
+
+### GET ONE
+GET http://localhost:3000/vehicles/{{id}}
+
+### PUT
+PUT http://localhost:3000/vehicles/{{id}}
+Content-Type: application/json
+
+{
+"licensePlate": "testLicensePlate MODIFIED",
+"brand": "Ford",
+"model": "RaptorCITO",
+"status": "Available",
+"vehicleType": 1  
+}
+
+### DELETE
+DELETE http://localhost:3000/vehicles/{{id}}

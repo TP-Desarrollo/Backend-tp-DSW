@@ -1,23 +1,20 @@
 import { Request, Response, NextFunction } from "express"
 import { orm } from "../../shared/db/orm.js"
-import { Cliente } from "./cliente.entity.js"
+import { Employee } from "./employee.entity.js"
 
 const em = orm.em
 
-function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
+function sanitizeEmployeeInput(req: Request, res: Response, next: NextFunction) {
   
   req.body.sanitizedInput = {
-    dni: req.body.dni, 
-    nombre: req.body.nombre, 
+    idNumber: req.body.idNumber, 
+    firstName: req.body.firstName, 
     email: req.body.email,
-    clave: req.body.clave, 
-    direccion: req.body.direccion,
-    telefono: req.body.telefono,
-    apellido: req.body.apellido,
-    localidad: req.body.localidad,
-    alquileres: req.body.alquileres,
+    password: req.body.password, 
+    lastName: req.body.lastName,
+    rentals: req.body.rentals,
   }
-  // Faltan validaciones aca de otras cosas
+  // Missing validations here for other things
 
   Object.keys(req.body.sanitizedInput).forEach(key => {
     if(req.body.sanitizedInput[key] === undefined){
@@ -29,8 +26,8 @@ function sanitizeClienteInput(req: Request, res: Response, next: NextFunction) {
 
 async function findAll(req: Request, res: Response) {
   try {
-    const cliente = await em.find(Cliente, {}, { populate: ['localidad','alquileres'] })
-    res.status(200).json({message:"Clientes encontrados", data: cliente})
+    const employee = await em.find(Employee, {}, { populate: ['rentals'] })
+    res.status(200).json({message:"Employees found", data: employee})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -39,8 +36,8 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const cliente = await em.findOneOrFail(Cliente, { id }, { populate: ['localidad','alquileres'] })
-    res.status(200).json({message:"Cliente encontrado", data: cliente})
+    const employee = await em.findOneOrFail(Employee, { id }, { populate: ['rentals'] })
+    res.status(200).json({message:"Employee found", data: employee})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -48,9 +45,9 @@ async function findOne(req: Request, res: Response) {
 
 async function add(req: Request, res: Response){
   try {
-    const cliente = em.create(Cliente, req.body.sanitizedInput)
+    const employee = em.create(Employee, req.body.sanitizedInput)
     await em.flush()
-    res.status(201).send({message: 'Cliente creado', data: cliente})
+    res.status(201).send({message: 'Employee created', data: employee})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
@@ -59,29 +56,28 @@ async function add(req: Request, res: Response){
 async function update(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const cliente =  em.getReference(Cliente, id )
-    em.assign(cliente, req.body.sanitizedInput)
+    const employee =  em.getReference(Employee, id )
+    em.assign(employee, req.body.sanitizedInput)
     await em.flush()
-    res.status(200).send({message: 'Cliente actualizado', data: cliente})
+    res.status(200).send({message: 'Employee updated', data: employee})
   } catch (error:any) {
     res.status(500).json({error: error.message})
   }
 }
 
-
 async function remove(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const cliente =  em.getReference(Cliente, id )
-    await em.removeAndFlush(cliente)
-    res.status(200).send({message: 'Cliente eliminado', data: cliente})
+    const employee =  em.getReference(Employee, id )
+    await em.removeAndFlush(employee)
+    res.status(200).send({message: 'Employee deleted', data: employee})
   } catch (error: any) {
     res.status(500).json({error: error.message})
   }
 }
 
 export{
-  sanitizeClienteInput,
+  sanitizeEmployeeInput,
   findAll,
   findOne,
   add,

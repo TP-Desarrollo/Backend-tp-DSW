@@ -7,8 +7,8 @@ POST http://localhost:3000/localidades/
 Content-Type: application/json
 
 {
-"nombre": "Arias",
-"provincia": "Cordoba"
+"name": "Arias",
+"province": "Cordoba"
 }
 
 ### ID
@@ -22,9 +22,10 @@ PUT http://localhost:3000/localidades/2
 Content-Type: application/json
 
 {
-"nombre": "Arias",
-"provincia": "Cordoba"
+"name": "Arias",
+"province": "Cordoba"
 }
+
 
 ### DELETE
 DELETE http://localhost:3000/localidades/{{id}}
