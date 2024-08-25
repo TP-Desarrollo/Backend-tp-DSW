@@ -6,10 +6,11 @@ export const orm = await MikroORM.init({
   entities:['dist/**/*.entity.js'],
   entitiesTs:['src/**/*.entity.ts'],
   dbName: "alquiler_autos",
-  driver: MySqlDriver,    // Preguntar si esto esta bien, en el video usa type: "mysql" y no hace import del driver, capaz es diferencia de versiones
+  driver: MySqlDriver, 
   clientUrl: "mysql://dsw:dsw@localhost:3306/alquiler_autos",
   highlighter: new SqlHighlighter(),
   debug: true,
+  allowGlobalContext: true,
   schemaGenerator:{ // No usar en produccion
     disableForeignKeys: true,
     createForeignKeyConstraints: true,

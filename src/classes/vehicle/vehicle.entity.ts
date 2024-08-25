@@ -18,6 +18,9 @@ export class Vehicle extends BaseEntity {
   @Property({nullable: false})
   status!: string
 
+  @Property({nullable: false})
+  imageUrl!: string
+
   @ManyToOne(() => VehicleType, {nullable: false})
   vehicleType!: VehicleType
 

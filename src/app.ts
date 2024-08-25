@@ -1,6 +1,8 @@
 import "reflect-metadata"
 import express from "express"
 import cors from "cors"
+import path from 'path';
+import { fileURLToPath } from 'url';
 import { orm, syncSchema } from "./shared/db/orm.js"
 import { RequestContext } from "@mikro-orm/core"
 import { localityRouter } from "./classes/locality/locality.routes.js"
@@ -11,6 +13,8 @@ import { employeeRouter } from "./classes/employee/employee.routes.js"
 import { rentalRouter } from "./classes/rental/rental.routes.js"
 
 const app = express()
+
+app.use('/uploads',express.static("./src/uploads"));
 
 app.use(express.json()) // Middleware for req.body
 app.use(cors({

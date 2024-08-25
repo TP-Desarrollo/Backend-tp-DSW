@@ -11,7 +11,8 @@ function sanitizeVehicleInput(req: Request, res: Response, next: NextFunction) {
     licensePlate: req.body.licensePlate, 
     brand: req.body.brand,
     model: req.body.model,
-    status: req.body.status, 
+    status: req.body.status,
+    imageUrl: req.file ? req.file.filename : req.body.imageUrl,
     vehicleType: req.body.vehicleType,
     rentals: req.body.rentals
   }
