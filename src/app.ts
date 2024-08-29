@@ -1,8 +1,6 @@
 import "reflect-metadata"
 import express from "express"
 import cors from "cors"
-import path from 'path';
-import { fileURLToPath } from 'url';
 import { orm, syncSchema } from "./shared/db/orm.js"
 import { RequestContext } from "@mikro-orm/core"
 import { localityRouter } from "./classes/locality/locality.routes.js"
