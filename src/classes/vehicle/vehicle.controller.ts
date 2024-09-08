@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { orm } from "../../shared/db/orm.js"
 import { Vehicle } from "./vehicle.entity.js"
+import fs from 'fs'
 
 const em = orm.em
 
@@ -70,7 +71,14 @@ async function update(req: Request, res: Response) {
 async function remove(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const vehicle =  em.getReference(Vehicle, id )
+    const vehicle =  await em.findOneOrFail(Vehicle, { id })    // Chequear si esto esta bien, porque aca traigo si o si el vehiculo para borrar la imagen, no por reference como estaba antes
+    fs.unlink(`./src/uploads/${vehicle.imageUrl}`, (err: any) => {
+      if(err) {
+        console.log("Error deleteing file: ", err)
+      } else {
+        console.log('File deleted')
+      }
+    })
     await em.removeAndFlush(vehicle)
     res.status(200).send({message: 'Vehicle deleted', data: vehicle})
   } catch (error: any) {
