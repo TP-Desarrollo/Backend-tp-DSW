@@ -8,14 +8,14 @@ POST http://localhost:3000/customers/
 Content-Type: application/json
 
 {
-"idNumber":12345678,
-"firstName": "Martina",
-"lastName": "Diaz",
-"email":"martinadiaz@gmail.com",
-"password": "123456",
-"address": "Salta 200",
+"dni": 58651,
+"firstName": "marcosTEST",
+"lastName": "perez",
+"email":"andresperez@gmail.com",
+"password": "4532",
+"address": "Salta 1500",
 "phone": "346845326",
-"locality": 1
+"locality": 2
 }
 
 ### ID

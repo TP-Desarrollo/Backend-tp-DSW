@@ -7,7 +7,7 @@ const em = orm.em
 function sanitizeCustomerInput(req: Request, res: Response, next: NextFunction) {
   
   req.body.sanitizedInput = {
-    idNumber: req.body.idNumber, 
+    dni: req.body.dni, 
     firstName: req.body.firstName, 
     email: req.body.email,
     password: req.body.password, 

@@ -1,14 +1,14 @@
 ### GET ALL
-GET http://localhost:3000/localidades
+GET http://localhost:3000/localities
 
 ### POST
 # @name createLocalidad
-POST http://localhost:3000/localidades/
+POST http://localhost:3000/localities/
 Content-Type: application/json
 
 {
-"name": "Arias",
-"province": "Cordoba"
+"name": "Rosario",
+"province": "Santa Fe"
 }
 
 ### ID
@@ -18,7 +18,7 @@ Content-Type: application/json
 GET http://localhost:3000/localidades/{{id}}
 
 ### PUT
-PUT http://localhost:3000/localidades/2
+PUT http://localhost:3000/localidades/{{id}}
 Content-Type: application/json
 
 {

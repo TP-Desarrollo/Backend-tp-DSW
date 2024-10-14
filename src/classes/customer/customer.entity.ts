@@ -7,7 +7,7 @@ import { Rental } from "../rental/rental.entity.js";
 export class Customer extends BaseEntity {
 
   @Property({nullable: false})
-  idNumber!: number
+  dni!: number
 
   @Property({nullable: false})
   firstName!: string
