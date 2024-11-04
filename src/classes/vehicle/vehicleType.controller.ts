@@ -24,7 +24,7 @@ function sanitizeVehicleTypeInput(req: Request, res: Response, next: NextFunctio
 
 async function findAll(req: Request, res: Response) {
   try {
-    const vehicleTypes = await em.find(VehicleType, {}, {populate:['vehicles']})
+    const vehicleTypes = await em.find(VehicleType, {})
     res.status(200).json({message:"Vehicle Types found", data: vehicleTypes})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -34,7 +34,7 @@ async function findAll(req: Request, res: Response) {
 async function findOne(req: Request, res: Response) {
   const id = Number.parseInt(req.params.id)
   try {
-    const vehicleType = await em.findOneOrFail(VehicleType, { id }, {populate:['vehicles']})
+    const vehicleType = await em.findOneOrFail(VehicleType, { id })
     res.status(200).json({message:"Vehicle Type found", data: vehicleType})
   } catch (error: any) {
     res.status(500).json({error: error.message})
@@ -54,7 +54,7 @@ async function add(req: Request, res: Response){
 async function update(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const vehicleType =  em.getReference(VehicleType, id )
+    const vehicleType =  await em.findOneOrFail(VehicleType, id )
     em.assign(vehicleType, req.body.sanitizedInput)
     await em.flush()
     res.status(200).send({message: 'Vehicle Type updated', data: vehicleType})
