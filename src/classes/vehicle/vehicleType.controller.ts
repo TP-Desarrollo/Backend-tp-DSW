@@ -54,7 +54,7 @@ async function add(req: Request, res: Response){
 async function update(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const vehicleType =  await em.findOneOrFail(VehicleType, id )
+    const vehicleType =  await em.getReference(VehicleType, id )
     em.assign(vehicleType, req.body.sanitizedInput)
     await em.flush()
     res.status(200).send({message: 'Vehicle Type updated', data: vehicleType})
@@ -66,7 +66,12 @@ async function update(req: Request, res: Response) {
 async function remove(req: Request, res: Response) {
   try {
     const id = Number.parseInt(req.params.id)
-    const vehicleType =  em.getReference(VehicleType, id )
+    const vehicleType = await em.findOneOrFail(VehicleType, id, { populate: ['vehicles'] } )
+    if ((await vehicleType).vehicles.length > 0) {
+      return res.status(400).json({
+        error: "Cannot delete vehicle type with associated vehicles. Please remove all vehicles of this type first."
+      });
+    }
     await em.removeAndFlush(vehicleType)
     res.status(200).send({message: 'Vehicle Type deleted', data: vehicleType})
   } catch (error: any) {
